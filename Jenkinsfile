@@ -1,10 +1,10 @@
 node {
-    stage ('Checkout') {
+    stage ('Checkout') 
+    {
         checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/fer-catarino/DOTT.git']]])
     }
     stage('Static Code Analysis')
-    {
-        
+    {   
     def scannerhome = tool 'Sonar-Scanner';
     withSonarQubeEnv('SonarQube'){
         sh """${scannerhome}/bin/sonar-scanner \
