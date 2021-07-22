@@ -5,8 +5,8 @@ node {
     stage('static Code Analysis')
     {
         def scannerhome = tool 'Sonar-Scanner';
-        withSonarQubeEnv ('sonarqubeserver')
-        sh """${scannerhome}/bin/sonarscanner \
+        withSonarQubeEnv ('SonarQubeServer')
+        sh """${scannerhome}/bin/sonar-scanner \
             -Dsonar.projectKey=SonarQubeServer \
             -Dsonar.exclusion=**README.md \
             -Dsonar.sources=./cidr_convert_api \
