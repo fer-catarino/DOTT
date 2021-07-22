@@ -1,27 +1,22 @@
-pipeline {
-    agent any
-        stages {
-            stage('Build') {
-                steps {
-                    sh 'echo "Step One build something else" '
-                }
-            }
-            stage('SonarQube') {
-                steps {
-                    sh 'echo "Step Two Sonar x" '
-                }
-            } 
+node {
+    stage ('Checkout') {
+        checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/fer-catarino/DOTT.git']]])
+    }
+    stage('static Code Analysis')
+{
+echo "Static Code Analysis"
+}
+stage('Build')
+{
+echo "Build the code"
+}
+stage('Unit testing')
+{
+echo "Unit testing"
+}
+stage('Delivery')
+{
+echo "Deliver the code"
+}
 
-            stage('Testing') {
-                steps {
-                    sh 'echo "Step Three ddd" '
-                }
-            }
-
-            stage('Deploy') {
-                steps {
-                    sh 'echo "Step Three" '
-                }
-            }
-        }
 }
