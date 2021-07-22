@@ -26,5 +26,5 @@ node {
     {
     echo "Deliver the code"
     }
-
+    }
 }
