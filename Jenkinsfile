@@ -5,7 +5,7 @@ node {
     }
     stage('Static Code Analysis')
     {   
-    def scannerhome = tool 'Sonar-Scanner';
+    def scannerhome = tool 'SonarScanner';
     withSonarQubeEnv('SonarQube'){
         sh """${scannerhome}/bin/sonar-scanner \
         -Dsonar.projectKey=SonarQube \
