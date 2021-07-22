@@ -6,7 +6,7 @@ node {
     {
         def scannerhome = tool 'SonarScanner';
         withSonarQubeEnv ('sonarqubeserver')
-        sh """${scannerhome}/bin/sonar-scanner \
+        sh """${scannerhome}/bin/sonarscanner \
             -Dsonar.projectKey=SonarQubeServer \
             -Dsonar.exclusion=**README.md \
             -Dsonar.sources=./cidr_convert_api \
