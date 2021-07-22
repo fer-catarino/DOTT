@@ -4,7 +4,7 @@ node {
     }
     stage('static Code Analysis')
     {
-        def scannerhome = tool 'Sonar-Scanner';
+        def scannerhome = tool 'SonarScanner';
         withSonarQubeEnv ('sonarqubeserver')
         sh """${scannerhome}/bin/sonar-scanner \
             -Dsonar.projectKey=SonarQubeServer \
