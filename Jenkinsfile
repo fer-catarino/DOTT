@@ -4,16 +4,16 @@ node {
     }
     stage('Static Code Analysis')
     {
-        def scannerhome = tool 'SonarScanner';
-        withSonarQubeEnv ('SonarQube')
-        sh """${scannerhome}/bin/sonarscanner \
+        def scannerhome = tool 'Sonar-Scanner';
+        withSonarQubeEnv ('SonarQubeServer')
+            sh """${scannerhome}/bin/sonarscanner \
             -Dsonar.projectKey=SonarQube \
             -Dsonar.exclusion=**/README.md \
             -Dsonar.sources=./cidr_convert_api \
             -Dsonar.host.url=http://3.141.27.156:9000 \
             -Dsonar.login=3d6038b8e7b0859f7c312c6bdd35d6c9cd04c6b1 """
 
-        }
+    }
     stage('Quality Gate')
     {
     echo "Pa que jale"
