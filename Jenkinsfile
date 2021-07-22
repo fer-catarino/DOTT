@@ -2,13 +2,6 @@ node {
     stage ('Checkout') {
         checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/fer-catarino/DOTT.git']]])
     }
-    stage('Installing packages') {
-            steps {
-                script {
-                    sh 'pip -r requirements.txt'
-                }
-            }
-        }
     stage('static Code Analysis')
     {
         def scannerhome = tool 'Sonar-Scanner';
