@@ -4,7 +4,14 @@ node {
     }
     stage('Static Code Analysis')
     {
-    echo "Pa que jale"
+        
+    def scannerhome = tool 'Sonar-Scanner';
+    withSonarQubeEnv('SonarQube'){
+        sh """${scannerhome}/bin/sonar-scanner \
+        -Dsonar.projectKey=SonarQube \
+        -Dsonar.sources=. \
+        -Dsonar.host.url=http://3.141.27.156:9000 \
+        -Dsonar.login=3d6038b8e7b0859f7c312c6bdd35d6c9cd04c6b1 """
     }
     stage('Quality Gate')
     {
