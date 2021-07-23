@@ -7,6 +7,7 @@ choose the language of your preference.
 
 ## What do we expect from you?
 ##hola
+##commit
 * Demonstrate you have great coding and operation skills, no matter which
 technology stack is used.
 
