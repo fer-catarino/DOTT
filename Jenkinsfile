@@ -14,11 +14,6 @@ node {
         -Dsonar.host.url=http://3.141.27.156:9000 \
         -Dsonar.login=3d6038b8e7b0859f7c312c6bdd35d6c9cd04c6b1 """
     }
-    stage("Quality gate") {
-        steps {
-                waitForQualityGate abortPipeline: true
-            }
-        }
     stage('Quality Gate')
     {
     echo "Pa que jale"
@@ -32,3 +27,4 @@ node {
     echo "Deliver the code"
     }
     }
+}
